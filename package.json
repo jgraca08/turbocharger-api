@@ -1,0 +1,19 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "Criar backend para site de turbocompressores com funções CRUD com as tecnologias NodeJS + ExpressJS + MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgraca08/turbocharger-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgraca08/turbocharger-api/issues"
+  },
+  "homepage": "https://github.com/jgraca08/turbocharger-api#readme"
+}
