@@ -1,40 +1,79 @@
+const ErrorResponse = require('../utils/errorResponse');
+const Brand = require('../models/Brand')
+const asyncHandler = require('../middleware/async');
+
+
 // @desc      Get all brands
 // @route     GET /api/v1/brands
 // @access    Public
-exports.getBrands = (req, res, next) => {
-    res.status(200).json({ success: true, msg: 'Show all brands' });
-  };
+exports.getBrands = asyncHandler( async (req, res, next) => {
+  
+    const brands = await Brand.find();
+
+    res
+      .status(200)
+      .json({ success: true, count: brands.length, data: brands });
+  
+  });
 
   // @desc      Get single brand
   // @route     GET /api/v1/brands/:id
   // @access    Public
-  exports.getBrand = (req, res, next) => {
-    res
-      .status(200)
-      .json({ success: true, msg: `Show brand ${req.params.id}` });
-  };
+  exports.getBrand = asyncHandler( async (req, res, next) => {
+    
+   
+      const brand = await Brand.findById(req.params.id);
+
+      if (!brand) {
+        return next(new ErrorResponse(`Brand not found with id of ${req.params.id}`, 404));
+      }
+
+      res.status(200).json({ success: true, data: brand });
+  });
 
   // @desc      Create new brand
   // @route     POST /api/v1/brands
   // @access    Private
-  exports.createBrand = (req, res, next) => {
-    res.status(200).json({ success: true, msg: 'Create new brand' });
-  };
+  exports.createBrand = asyncHandler( async (req, res, next) => {
+    //console.log(req.body); //Retorna na consola o que enviamos no Postman
+  
+      const brand = await Brand.create(req.body);
+
+      res.status(201).json({
+        success: true,
+        data: brand
+      });
+  });
 
   // @desc      Update brand
   // @route     PUT /api/v1/brands/:id
   // @access    Private
-  exports.updateBrand = (req, res, next) => {
-    res
-      .status(200)
-      .json({ success: true, msg: `Update brand ${req.params.id}` });
-  };
+  exports.updateBrand = asyncHandler( async (req, res, next) => {
+  
+      const brand = await Brand.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+      });
+
+      if (!brand) {
+        // return res.status(400).json({ success: false });
+        return next(new ErrorResponse(`Brand not found with id of ${req.params.id}`, 404));
+      }
+
+      res.status(200).json({ success: true, data: brand });
+  });
 
   // @desc      Delete brand
   // @route     DELETE /api/v1/brands/:id
   // @access    Private
-  exports.deleteBrand = (req, res, next) => {
-    res
-      .status(200)
-      .json({ success: true, msg: `Delete brand ${req.params.id}` });
-  };
+  exports.deleteBrand = asyncHandler( async (req, res, next) => {
+    
+      const brand = await Brand.findByIdAndDelete(req.params.id);
+
+      if (!brand) {
+        // return res.status(400).json({ success: false });
+        return next(new ErrorResponse(`Brand not found with id of ${req.params.id}`, 404));
+      }
+
+      res.status(200).json({ success: true, data: {} });
+  });
