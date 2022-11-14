@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const BrandSchema = new mongoose.Schema({
     name: {
@@ -12,5 +13,13 @@ const BrandSchema = new mongoose.Schema({
         default: 'no-photo.jpg'
     }
 });
+
+// Create brand slug from the name
+BrandSchema.pre('save', function(next) {
+    console.log('slugify',this.name);
+    this.slug = slugify(this.name, { lower: true });
+    next();
+  });
+
 
 module.exports = mongoose.model('Brand',BrandSchema);
