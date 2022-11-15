@@ -7,8 +7,16 @@ const asyncHandler = require('../middleware/async');
 // @route     GET /api/v1/brands
 // @access    Public
 exports.getBrands = asyncHandler( async (req, res, next) => {
-  
-    const brands = await Brand.find();
+  console.log(req.query);
+
+  let queryStr = JSON.stringify(req.query);
+  console.log(queryStr);
+  //Acrescenta o $ na rota para usar as expressões
+  queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+  console.log(queryStr);
+  let query;
+  query = Brand.find(JSON.parse(queryStr));
+  const brands = await query;
 
     res
       .status(200)

@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const slugify = require('slugify');
 
 const BrandSchema = new mongoose.Schema({
+    
+    slug: String,
     name: {
         type: String,
         required: [true, "Please add a name"],
