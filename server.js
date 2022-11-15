@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 //Route files
 const auth = require('./routes/auth');
 const brands = require('./routes/brands');
+const turbos = require('./routes/turbos');
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -34,6 +35,8 @@ if (process.env.NODE_ENV === 'development') {
 // Mount routers
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/brands', brands);
+app.use('/api/v1/turbos', turbos);
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
