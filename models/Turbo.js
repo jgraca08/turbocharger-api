@@ -30,7 +30,7 @@ const TurboSchema = new mongoose.Schema({
   brand: {
     type: mongoose.Schema.ObjectId,
     ref: "Brand",
-    required: true,
+    required: true 
   },
 });
 

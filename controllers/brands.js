@@ -24,7 +24,10 @@ exports.getBrands = asyncHandler( async (req, res, next) => {
   queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
   let query;
-  query = Brand.find(JSON.parse(queryStr));
+  query = Brand.find(JSON.parse(queryStr)).populate({
+    path: 'turbos',
+    select: 'title photo'
+  });
 
    // Select Fields
    if (req.query.select) {
@@ -131,12 +134,14 @@ query = query.skip(startIndex).limit(limit);
   // @access    Private
   exports.deleteBrand = asyncHandler( async (req, res, next) => {
     
-      const brand = await Brand.findByIdAndDelete(req.params.id);
+      // const brand = await Brand.findByIdAndDelete(req.params.id);
+      const brand = await Brand.findById(req.params.id);
 
       if (!brand) {
         // return res.status(400).json({ success: false });
         return next(new ErrorResponse(`Brand not found with id of ${req.params.id}`, 404));
       }
 
+      brand.remove();
       res.status(200).json({ success: true, data: {} });
   });
