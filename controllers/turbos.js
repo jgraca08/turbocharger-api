@@ -56,9 +56,10 @@ exports.getTurbo = asyncHandler(async (req, res, next) => {
 // @route     POST /api/v1/turbos/:brandId/turbos
 // @access    Private
 exports.addTurbo = asyncHandler(async (req, res, next) => {
-  req.body.brand = req.params.brandId;
+  // req.body.brand = req.params.brandId;
+  // console.log(req.params.brandId);
 
-  const brand = await Brand.findById(req.params.brandId);
+  const brand = await Brand.findById(req.body.brand);
 
   if (!brand) {
     return next(
