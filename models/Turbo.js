@@ -41,6 +41,13 @@ const TurboSchema = new mongoose.Schema({
 }
 );
 
+// Cascade delete comments when a turbo is deleted
+TurboSchema.pre('remove', async function(next) {
+  console.log(`Comments being removed from turbo ${this._id}`);
+  await this.model('Comment').deleteMany({ turbo: this._id });
+  next();
+});
+
 // Reverse populate with virtuals
 TurboSchema.virtual('comments', {
   ref: 'Comment',
