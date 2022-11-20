@@ -9,7 +9,13 @@ const {
 
   const { protect, authorize } = require('../middleware/auth')
 
-const router = express.Router({ mergeParams: true });
+  // Include other resource routers
+  const commentRouter = require('./comments');
+
+  const router = express.Router({ mergeParams: true });
+
+  // Re-route into other resource routers
+  router.use('/:turboId/comments', commentRouter);
 
 router
   .route('/')

@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const CommentSchema = new mongoose.Schema({
     comment: {
       type: String,
-      minLength:[5,"Comment must have 5 characters min."],
       maxLength:[300,"Comment must have 300 characters max."],
       required: [true, "Please add a comment"],
     },
@@ -14,6 +13,11 @@ const CommentSchema = new mongoose.Schema({
     user: {
       type: mongoose.Schema.ObjectId,
       ref: "User",
+      required: true 
+    },
+    turbo: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Turbo",
       required: true 
     },
   });
