@@ -34,6 +34,19 @@ const TurboSchema = new mongoose.Schema({
     ref: "Brand",
     required: true 
   },
+},
+{
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+}
+);
+
+// Reverse populate with virtuals
+TurboSchema.virtual('comments', {
+  ref: 'Comment',
+  localField: '_id',
+  foreignField: 'turbo',
+  justOne: false
 });
 
 module.exports = mongoose.model("Turbo", TurboSchema);

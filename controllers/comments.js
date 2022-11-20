@@ -13,6 +13,7 @@ exports.getComments = asyncHandler(async (req, res, next) => {
   if (req.params.turboId) {
     query = Comment.find({ turbo: req.params.turboId });
   } else {
+    //Populate
     query = Comment.find().populate({
         path: 'turbo',
       select: 'title photo'
