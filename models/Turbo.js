@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const TurboSchema = new mongoose.Schema({
   title: {
     type: String,
+    unique: true,
     trim: true,
     required: [true, "Please add a turbo title"],
   },
   partNumber: {
     type: String,
+    unique: true,
     trim: true,
     required: [true, "Please add a turbo part number"],
   },

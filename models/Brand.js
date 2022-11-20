@@ -7,7 +7,7 @@ const BrandSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Please add a name"],
-        unique: true,
+        unique: [true, "This name already exists. Please choose a another name."],
         maxlength: [30, "Name can not be more than 30 characters"],
       }, 
     photo: {
