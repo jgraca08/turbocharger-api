@@ -8,7 +8,8 @@ const errorHandler = (err, req, res, next) => {
 
     // Mongoose bad ObjectId - erro CastError
     if (err.name === 'CastError') {
-        const message = `Brand not found with id of ${err.value}`;
+
+        const message = `Id ${err.value} not found`;
         error = new ErrorResponse(message, 404);
     }
 
