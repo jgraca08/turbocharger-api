@@ -20,6 +20,12 @@ const CommentSchema = new mongoose.Schema({
       ref: "Turbo",
       required: true 
     },
+    brand: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Brand",
+      required: true 
+    },
+    
   });
   
   module.exports = mongoose.model("Comment", CommentSchema);

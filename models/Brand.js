@@ -35,6 +35,7 @@ BrandSchema.pre('save', function(next) {
 BrandSchema.pre('remove', async function(next) {
   console.log(`Turbos being removed from brand ${this._id}`);
   await this.model('Turbo').deleteMany({ brand: this._id });
+  await this.model('Comment').deleteMany({ brand: this._id });
   next();
 });
 
