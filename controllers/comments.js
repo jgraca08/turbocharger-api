@@ -104,7 +104,6 @@ exports.updateComment = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.deleteComment = asyncHandler(async (req, res, next) => {
   const comment = await Comment.findById(req.params.id);
-
   if (!comment) {
     return next(
       new ErrorResponse(`No comment with the id of ${req.params.id}`),

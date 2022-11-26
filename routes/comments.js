@@ -7,7 +7,7 @@ const {
     deleteComment
   } = require('../controllers/comments');
 
-  const { protect, authorize } = require('../middleware/auth')
+  const { protect, authorize, authorizeComment } = require('../middleware/auth')
 
 const router = express.Router({ mergeParams: true });
 
@@ -19,7 +19,7 @@ router
 router
   .route('/:id')
   .get(getComment)
-  .put(protect, authorize('publisher','user','admin'), updateComment)
-  .delete(protect, authorize('publisher','user','admin'), deleteComment);
+  .put(protect, authorize('publisher','user','admin'),authorizeComment, updateComment)
+  .delete(protect, authorize('publisher','user','admin'),authorizeComment, deleteComment);
 
 module.exports = router;

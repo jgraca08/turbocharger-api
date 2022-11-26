@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const asyncHandler = require('./async');
 const ErrorResponse = require('../utils/errorResponse');
 const User = require('../models/User');
+const Comment = require('../models/Comment');
 
 // Protect routes
 exports.protect = asyncHandler(async (req, res, next) => {
@@ -52,3 +53,13 @@ exports.authorize = (...roles) => {
       next();
     };
   };
+
+  
+// Grant access to Users edit and delete his own comments
+  exports.authorizeComment = asyncHandler(async (req, res, next) => {
+        const comment = await Comment.findById(req.params.id)
+        if(comment.user == req.user.id)
+           next();
+       else 
+        return next(new ErrorResponse(`User with id ${req.user.id} is not authorized to access this route`, 403))
+  });
