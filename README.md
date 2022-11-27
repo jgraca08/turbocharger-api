@@ -20,38 +20,41 @@ Nome
 <p>E-mail
 Password
 Role:
-    Publisher
-    User</p>
+    Publisher e User</p>
 <p>-Login:
 E-mail e password</p>
 <p>-Logout</p>
-<p>-GetMe:
-Retorna o user atualmente logado</p>
+<p>-GetMe:</p>
+<p>Retorna o user atualmente logado</p>
 
-#### Endpoints
+#### Endpoints Users
 
 <ul>
 <li>@desc      Register user</li>
 <li>@route     POST /api/v1/auth/register</li>
 <li>@access    Public</li>
 </ul>
-@desc      Login user
-@route     POST /api/v1/auth/login
-@access    Public
-
-@desc      Get current logged in user
-@route     POST /api/v1/auth/me
-@access    Private
-
-@desc      Log user out / clear cookie
-@route     GET /api/v1/auth/logout
-@access    Private
+<ul>
+<li>@desc      Login user</li>
+<li>@route     POST /api/v1/auth/login</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Get current logged in user</li>
+<li>@route     POST /api/v1/auth/me</li>
+<li>@access    Private</li>
+</ul>
+<ul>
+<li>@desc      Log user out / clear cookie</li>
+<li>@route     GET /api/v1/auth/logout</li>
+<li>@access    Private</li>
+</ul>
 
 ### Brands
 
 <p>-Listar todas as marcas:</p>
-<p>Acesso público</p>
-<p>Paginação com limite de itens por página</p>
+    <p>Acesso público</p>
+<p> Paginação com limite de itens por página</p>
 <p>-Listar uma marca:</p>
 <p>Acesso público</p>      
 <p>-Criar uma marca:</p> 
@@ -64,6 +67,28 @@ Retorna o user atualmente logado</p>
 <p>Acesso privado</p>
 <p>Apenas autorizado a users registados com o role publisher</p>
 <p>Cascade delete para eliminar os dados subjacentes</p>
+
+#### Endpoints Brands
+<ul>
+<li>@desc      Get all brands</li>
+<li>@route     GET /api/v1/brands</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Get single brand</li>
+<li>@route     GET /api/v1/brands/:id</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Create new brand</li>
+<li>@route     POST /api/v1/brands</li>
+<li>@access    Private</li>
+</ul>
+<ul>
+<li>@desc      Update brand</li>
+<li>@route     PUT /api/v1/brands/:id</li>
+<li>@access    Private</li>
+</ul>
 
 ### Turbos
 
@@ -83,6 +108,30 @@ Retorna o user atualmente logado</p>
 <p>Acesso privado</p>
 <p>Apenas autorizado a users registados com o role publisher</p> 
 
+
+#### Endpoints Turbos
+<ul>
+<li>@desc      Get all turbos</li>
+<li>@route     GET /api/v1/turbos</li>
+<li>@route     GET /api/v1/brands/:brandId/turbos</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Get single turbo</li>
+<li>@route     GET /api/v1/turbos/:id</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Create new turbo</li>
+<li>@route     POST /api/v1/turbos</li>
+<li>@access    Private</li>
+</ul>
+<ul>
+<li>@desc      Update turbo</li>
+<li>@route     PUT /api/v1/turbos/:id</li>
+<li>@access    Private</li>
+</ul>
+
 ### Comments
 
 <p>-Listar todos os comments:</p>
@@ -98,6 +147,29 @@ Retorna o user atualmente logado</p>
 <p>-Apagar um comment:</p> 
 <p>Acesso privado</p>
 <p>Apenas autorizado ao user autor do comment e autenticado</p>
+
+#### Endpoints Comments
+<ul>
+<li>@desc      Get all comments</li>
+<li>@route     GET /api/v1/comments</li>
+<li>@route     GET /api/v1/turbos/:turboId/comments</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Get single comment</li>
+<li>@route     GET /api/v1/comments/:id</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Create new comment</li>
+<li>@route     POST /api/v1/comments</li>
+<li>@access    Private</li>
+</ul>
+<ul>
+<li>@desc      Update comment</li>
+<li>@route     PUT /api/v1/comments/:id</li>
+<li>@access    Private</li>
+</ul>
 
 ### Ratings
 
@@ -116,13 +188,26 @@ Retorna o user atualmente logado</p>
 <p>Acesso privado</p>
 <p>Apenas autorizado ao user autor do rating e autenticado</p>
 
+#### Endpoints Ratings
+<ul>
+<li>@desc      Get all ratings</li>
+<li>@route     GET /api/v1/ratings</li>
+<li>@route     GET /api/v1/turbos/:turboId/ratings</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Get single rating</li>
+<li>@route     GET /api/v1/ratings/:id</li>
+<li>@access    Public</li>
+</ul>
+<ul>
+<li>@desc      Create new rating</li>
+<li>@route     POST /api/v1/ratings</li>
+<li>@access    Private</li>
+</ul>
+<ul>
+<li>@desc      Update rating</li>
+<li>@route     PUT /api/v1/ratings/:id</li>
+<li>@access    Private</li>
+</ul>
 
-
-
-# Users e autenticação
-      -Registo
-            -Uso de e-mail e password
-            -passwords encriptadas através do bcryptjs
-      -Login
-            -Uso de e-mail e password
-      -Logout
