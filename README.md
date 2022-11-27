@@ -30,10 +30,11 @@ Retorna o user atualmente logado</p>
 
 #### Endpoints
 
-<p>@desc      Register user<
-@route     POST /api/v1/auth/register
-@access    Public
-<p>
+<ul>
+<li>@desc      Register user</li>
+<li>@route     POST /api/v1/auth/register</li>
+<li>@access    Public</li>
+</ul>
 @desc      Login user
 @route     POST /api/v1/auth/login
 @access    Public
