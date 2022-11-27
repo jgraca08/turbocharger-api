@@ -38,7 +38,7 @@ A API foi desenvolvida com recurso às tecnologias de NodeJS + ExpressJS + Mongo
 </li>
 </ul>
 
-#### Endpoints Users
+### Endpoints Users
 
 <ul>
 <li>@desc      Register user</li>
@@ -63,23 +63,41 @@ A API foi desenvolvida com recurso às tecnologias de NodeJS + ExpressJS + Mongo
 
 ### Brands
 
-<p>-Listar todas as marcas:</p>
-    <p>Acesso público</p>
-<p> Paginação com limite de itens por página</p>
-<p>-Listar uma marca:</p>
-<p>Acesso público</p>      
-<p>-Criar uma marca:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados com o role publisher</p>
-<p>-Editar uma marca:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados com o role publisher</p>
-<p>-Apagar uma marca:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados com o role publisher</p>
-<p>Cascade delete para eliminar os dados subjacentes</p>
 
-#### Endpoints Brands
+<ul>
+<li>Listar todas as brands:
+<ul>
+<li>Acesso público</li>
+<li>Paginação com limite de itens por página</li>
+</ul>
+</li>
+<li>Listar uma brand:
+<ul>
+<li>Acesso público</li>
+</ul>
+</li>
+<li>Criar uma brand:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados com o role publisher</li>
+</ul>
+</li>
+<li>Editar uma brand:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados com o role publisher</li>
+</ul>
+</li>
+<li>Apagar uma brand:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados com o role publisher</li>
+<li>Cascade delete para eliminar os dados subjacentes</li>
+</ul>
+</li>
+</ul>
+
+### Endpoints Brands
 <ul>
 <li>@desc      Get all brands</li>
 <li>@route     GET /api/v1/brands</li>
@@ -103,24 +121,41 @@ A API foi desenvolvida com recurso às tecnologias de NodeJS + ExpressJS + Mongo
 
 ### Turbos
 
-<p>-Listar todos os turbos:</p>
-<p>Acesso público</p>
-<p>Paginação com limite de itens por página</p>
-<p>Sort e Filtering</p>
-<p>-Listar um turbo:</p>
-<p>Acesso público</p>      
-<p>-Criar um turbo:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados com o role publisher</p>
-<p>-Editar um turbo:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados com o role publisher</p>
-<p>-Apagar um turbo:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados com o role publisher</p> 
+<ul>
+<li>Listar todos os turbos:
+<ul>
+<li>Acesso público</li>
+<li>Paginação com limite de itens por página</li>
+<li>Sort e Filtering</li>
+</ul>
+</li>
+<li>Listar um turbo:
+<ul>
+<li>Acesso público</li>
+</ul>
+</li>
+<li>Criar um turbo:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados com o role publisher</li>
+</ul>
+</li>
+<li>Editar um turbo:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados com o role publisher</li>
+</ul>
+</li>
+<li>Apagar um turbo:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados com o role publisher</li>
+</ul>
+</li>
+</ul>
+    
 
-
-#### Endpoints Turbos
+### Endpoints Turbos
 <ul>
 <li>@desc      Get all turbos</li>
 <li>@route     GET /api/v1/turbos</li>
@@ -145,21 +180,38 @@ A API foi desenvolvida com recurso às tecnologias de NodeJS + ExpressJS + Mongo
 
 ### Comments
 
-<p>-Listar todos os comments:</p>
-<p>Acesso público</p>
-<p>-Listar um comment:</p>
-<p>Acesso público</p>      
-<p>-Criar um comment:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados e autenticados</p>
-<p>-Editar um comment:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado ao user autor do comment e autenticado</p>
-<p>-Apagar um comment:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado ao user autor do comment e autenticado</p>
+<ul>
+<li>Listar todos os comments:
+<ul>
+<li>Acesso público</li>
+</ul>
+</li>
+<li>Listar um comment:
+<ul>
+<li>Acesso público</li>
+</ul>
+</li>
+<li>Criar um comment:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados e autenticados</li>
+</ul>
+</li>
+<li>Editar um comment:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado ao user autor do comment e autenticado</li>
+</ul>
+</li>
+<li>Apagar um comment:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado ao user autor do comment e autenticado</li>
+</ul>
+</li>
+</ul>
 
-#### Endpoints Comments
+### Endpoints Comments
 <ul>
 <li>@desc      Get all comments</li>
 <li>@route     GET /api/v1/comments</li>
@@ -184,22 +236,39 @@ A API foi desenvolvida com recurso às tecnologias de NodeJS + ExpressJS + Mongo
 
 ### Ratings
 
-<p>-Listar todos os ratings:</p>
-<p>Acesso público</p>
-<p>-Listar um rating:</p>
-<p>Acesso público</p>      
-<p>-Criar um rating:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado a users registados e autenticados</p>
-<p>Rating com valor entre 1 e 5</p>
-<p>-Editar um rating:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado ao user autor do rating e autenticado</p>
-<p>-Apagar um rating:</p> 
-<p>Acesso privado</p>
-<p>Apenas autorizado ao user autor do rating e autenticado</p>
+<ul>
+<li>Listar todos os ratings:
+<ul>
+<li>Acesso público</li>
+</ul>
+</li>
+<li>Listar um rating:
+<ul>
+<li>Acesso público</li>
+</ul>
+</li>
+<li>Criar um rating:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado a users registados e autenticados</li>
+<li>Rating com valor entre 1 e 5</li>
+</ul>
+</li>
+<li>Editar um rating:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado ao user autor do rating e autenticado</li>
+</ul>
+</li>
+<li>Apagar um rating:
+<ul>
+<li>Acesso privado</li>
+<li>Apenas autorizado ao user autor do rating e autenticado</li>
+</ul>
+</li>
+</ul>
 
-#### Endpoints Ratings
+### Endpoints Ratings
 <ul>
 <li>@desc      Get all ratings</li>
 <li>@route     GET /api/v1/ratings</li>
