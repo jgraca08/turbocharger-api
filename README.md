@@ -15,17 +15,28 @@ A API foi desenvolvida com recurso às tecnologias de NodeJS + ExpressJS + Mongo
 
 ### Users
 
-<p>-Registo:</p>
-Nome
-<p>E-mail
-Password
-Role:
-    Publisher e User</p>
-<p>-Login:
-E-mail e password</p>
-<p>-Logout</p>
-<p>-GetMe:</p>
-<p>Retorna o user atualmente logado</p>
+
+<ul>
+<li>Registo:
+<ul>
+<li>Nome</li>
+<li>Email</li>
+<li>Password</li>
+<li>Role:
+<ul>
+<li>Publisher</li>
+<li>User</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Logout</li>
+<li>GetMe
+<ul>
+<li>Retorna o user atualmente logado</li>
+</ul>
+</li>
+</ul>
 
 #### Endpoints Users
 
