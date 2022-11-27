@@ -35,7 +35,7 @@ exports.getTurbos = asyncHandler(async (req, res, next) => {
   // Create operators ($gt, $gte, etc)
   queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
-  query = Turbo.find(JSON.parse(queryStr)).populate('comments');
+  query = Turbo.find(JSON.parse(queryStr)).populate('comments','ratings');
 
    // Select Fields
    if (req.query.select) {

@@ -3,6 +3,7 @@ const asyncHandler = require('./async');
 const ErrorResponse = require('../utils/errorResponse');
 const User = require('../models/User');
 const Comment = require('../models/Comment');
+const Rating = require('../models/Rating');
 
 // Protect routes
 exports.protect = asyncHandler(async (req, res, next) => {
@@ -59,6 +60,16 @@ exports.authorize = (...roles) => {
   exports.authorizeComment = asyncHandler(async (req, res, next) => {
         const comment = await Comment.findById(req.params.id)
         if(comment.user == req.user.id)
+           next();
+       else 
+        return next(new ErrorResponse(`User with id ${req.user.id} is not authorized to access this route`, 403))
+  });
+
+
+  // Grant access to Users edit and delete his own ratings
+  exports.authorizeRating = asyncHandler(async (req, res, next) => {
+        const rating = await Rating.findById(req.params.id)
+        if(rating.user == req.user.id)
            next();
        else 
         return next(new ErrorResponse(`User with id ${req.user.id} is not authorized to access this route`, 403))

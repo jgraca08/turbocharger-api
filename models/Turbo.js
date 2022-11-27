@@ -48,9 +48,26 @@ TurboSchema.pre('remove', async function(next) {
   next();
 });
 
-// Reverse populate with virtuals
+// Cascade delete ratings when a turbo is deleted
+TurboSchema.pre('remove', async function(next) {
+  console.log(`Ratings being removed from turbo ${this._id}`);
+  await this.model('Rating').deleteMany({ turbo: this._id });
+  next();
+});
+
+
+
+// Reverse populate comments with virtuals
 TurboSchema.virtual('comments', {
   ref: 'Comment',
+  localField: '_id',
+  foreignField: 'turbo',
+  justOne: false
+});
+
+// Reverse populate ratings with virtuals
+TurboSchema.virtual('ratings', {
+  ref: 'Rating',
   localField: '_id',
   foreignField: 'turbo',
   justOne: false

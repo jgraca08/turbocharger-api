@@ -11,11 +11,13 @@ const {
 
   // Include other resource routers
   const commentRouter = require('./comments');
+  const ratingRouter = require('./ratings');
 
   const router = express.Router({ mergeParams: true });
 
   // Re-route into other resource routers
   router.use('/:turboId/comments', commentRouter);
+  router.use('/:turboId/ratings', ratingRouter);
 
 router
   .route('/')

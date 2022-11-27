@@ -16,6 +16,17 @@ const RatingSchema = new mongoose.Schema({
       ref: "User",
       required: true 
     },
+    turbo: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Turbo",
+      required: true 
+    },
+    brand: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Brand",
+      required: true 
+    },
+    
   });
   
   module.exports = mongoose.model("Rating", RatingSchema);

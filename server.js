@@ -11,6 +11,7 @@ const auth = require('./routes/auth');
 const brands = require('./routes/brands');
 const turbos = require('./routes/turbos');
 const comments = require('./routes/comments');
+const ratings = require('./routes/ratings');
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -38,6 +39,7 @@ app.use('/api/v1/auth', auth);
 app.use('/api/v1/brands', brands);
 app.use('/api/v1/turbos', turbos);
 app.use('/api/v1/comments', comments);
+app.use('/api/v1/ratings', ratings);
 
 app.use(errorHandler);
 
