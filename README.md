@@ -5,47 +5,46 @@
 <p>O projeto para desenvolver uma API para a consulta de turbocompressores automóveis foi desenvolvido no seguimento do projeto de frontend, que consistiu no desenvolvimento de um website com React para uma oficina de reparação de turbocompressores.
 </p>
 <p>A finalidade do projeto é que os utilizadores possam consultar que turbo equipa cada carro segundo a marca, com acesso a vários detalhes sobre o turbocompressor e ainda que possam deixar comentários sobre os produtos e dar uma avaliação.</p>
-<p>Na API existem diferentes tipos de dados:</p>
-<p>Brands, Turbos, Comments e Ratings, estes dois últimos respeitantes aos Turbos.</p>
+<p>Na API existem diferentes tipos de dados:
+    Brands, Turbos, Comments e Ratings, estes dois últimos respeitantes aos Turbos.</p>
 <p>
 A API foi desenvolvida com recurso às tecnologias de NodeJS + ExpressJS + MongoDB.
 </p>
-<br>
 
 ## Recursos da API
 
 ### Users
 
 <p>-Registo:</p>
-<p>Nome</p>
-<p>E-mail</p>
-<p>Password</p>
-<p>Role:</p>
-<p>Publisher</p>
-<p>User</p>
-<p>-Login:</p>
-<p>E-mail e password</p>
+Nome
+<p>E-mail
+Password
+Role:
+    Publisher
+    User</p>
+<p>-Login:
+E-mail e password</p>
 <p>-Logout</p>
-<p>-GetMe:</p>
-<p>Retorna o user atualmente logado</p>
+<p>-GetMe:
+Retorna o user atualmente logado</p>
 
 #### Endpoints
 <code>
-@desc      Register user
-@route     POST /api/v1/auth/register
-@access    Public
-
-@desc      Login user
-@route     POST /api/v1/auth/login
-@access    Public
-
-@desc      Get current logged in user
-@route     POST /api/v1/auth/me
-@access    Private
-
-@desc      Log user out / clear cookie
-@route     GET /api/v1/auth/logout
-@access    Private
+@desc      Register user<br>
+@route     POST /api/v1/auth/register<br>
+@access    Public<br>
+<br>
+@desc      Login user<br>
+@route     POST /api/v1/auth/login<br>
+@access    Public<br>
+<br>
+@desc      Get current logged in user<br>
+@route     POST /api/v1/auth/me<br>
+@access    Private<br>
+<br>
+@desc      Log user out / clear cookie<br>
+@route     GET /api/v1/auth/logout<br>
+@access    Private<br>
 </code>
 
 ### Brands
